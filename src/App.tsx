@@ -60,19 +60,19 @@ export default function App() {
           <div className="mb-8">
             <div className="flex flex-col items-center gap-3 mb-4 text-center">
               <div className="p-2 bg-primary/10 rounded-lg">
-              <FileText className="w-6 h-6 text-primary" />
+                <FileText className="w-10 h-10 text-primary" />
               </div>
-              <div>
-              <h1 className="text-2xl font-bold">SkiptheJargon</h1>
-              <p className="text-muted-foreground">
-                Simplified summaries of privacy policies and terms from major UK companies
-              </p>
+              <div className="mt-2">
+                <h1 className="text-6xl font-bold">SkiptheJargon</h1>
+                <p className="text-muted-foreground mt-2">
+                  Simplified summaries of privacy policies and terms from major UK companies
+                </p>
               </div>
             </div>
             {/* Stats Cards */}
             <div className="flex justify-center mb-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
-                <div className="card bg-gray-600 flex items-center justify-center">
+                <div className="card border border-black flex items-center justify-center">
                   <div className="card-body flex flex-col items-center justify-center">
                     <div className="flex items-center gap-3">
                       <Users className="w-5 h-5 text-blue-500" />
@@ -84,7 +84,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className='card bg-gray-600 flex items-center justify-center'>
+                <div className="card border border-black flex items-center justify-center">
                   <div className="card-body flex flex-col items-center justify-center">
                     <div className="flex items-center gap-3">
                       <Shield className="w-5 h-5 text-green-500" />
@@ -96,7 +96,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className='card bg-gray-600 flex items-center justify-center'>
+                <div className="card border border-black flex items-center justify-center">
                   <div className="card-body flex flex-col items-center justify-center">
                     <div className="flex items-center gap-3">
                       <FileText className="w-5 h-5 text-purple-500" />
@@ -137,7 +137,7 @@ export default function App() {
 
           {filteredCompanies.length === 0 ? (
             <div className='card'>
-              <div className = 'card-body'>
+              <div className='card-body'>
                 <div className="flex flex-col items-center gap-3">
                   <Info className="w-8 h-8 text-muted-foreground" />
                   <div>
@@ -164,7 +164,9 @@ export default function App() {
           {/* Footer */}
           <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
             <p>
-              <b>S240256</b>This tool provides simplified summaries for dissertation purposes.
+              <b>S240256</b>
+            </p>
+            <p>This tool provides simplified summaries for dissertation purposes.
               Always refer to the original terms and conditions for complete information.
             </p>
             <p className="mt-2">
