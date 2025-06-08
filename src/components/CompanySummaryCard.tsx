@@ -17,9 +17,9 @@ export function CompanySummaryCard({ company, onViewDetails }: CompanySummaryCar
   };
 
   return (
-    <div className="card bg-gray-700 hover:bg-green-900 shadow-lg transition-shadow duration-200 text-left">
+    <div className="card bg-gray-600 shadow-md border border-gray-200 rounded-lg hover:bg-info shadow-lg transition-shadow duration-200 text-left">
       <div className="card-header flex items-center justify-between p-4">
-        <img src={company.logo || "/default-logo.png"} alt={`${company.name} logo`} className="w-12 h-12 rounded-full" />
+        <img src={company.logo || "/default-logo.png"} alt={`${company.name} logo`} className="w-20 h-20 " />
        </div> 
       <div className="pb-3">
       <div className="flex items-start justify-between">

@@ -58,7 +58,7 @@ export const companiesData: Company[] = [
     id: "bt",
     name: "BT Group PLC",
     industry: "Telecommunications",
-    logo: ".../assets/BT-Logo.svg",
+    logo: "src/assets/BT_Group_2022.svg",
     lastUpdated: "2024-11-28",
     summary: {
       dataCollection: [
@@ -95,7 +95,7 @@ export const companiesData: Company[] = [
     id: "lloyds",
     name: "Lloyds Banking Group",
     industry: "Financial Services",
-    logo: ".../assets/Lloyds-Logo.svg",
+    logo: "src/assets/lloyds-bank.svg",
     lastUpdated: "2024-12-01",
     summary: {
       dataCollection: [
@@ -132,7 +132,7 @@ export const companiesData: Company[] = [
     id: "sky",
     name: "Sky UK Limited",
     industry: "Media & Entertainment",
-    logo: ".../assets/Sky-Logo.svg",
+    logo: "src/assets/sky-4.svg",
     lastUpdated: "2024-12-10",
     summary: {
       dataCollection: [
@@ -159,7 +159,7 @@ export const companiesData: Company[] = [
       keyHighlights: [
         "Personalised recommendations",
         "Granular privacy controls",
-        "Regular data minimization reviews",
+        "Regular data minimisation reviews",
         "Clear marketing preferences"
       ],
       riskLevel: "Medium"
@@ -169,7 +169,7 @@ export const companiesData: Company[] = [
     id: "johnlewis",
     name: "John Lewis Partnership",
     industry: "Retail",
-    logo: ".../assets/JohnLewis-Logo.svg",
+    logo: "src/assets/John_Lewis_&_Partners-logo.wine.svg",
     lastUpdated: "2024-11-15",
     summary: {
       dataCollection: [
@@ -206,7 +206,7 @@ export const companiesData: Company[] = [
     id: "vodafone",
     name: "Vodafone UK",
     industry: "Telecommunications",
-    logo: ".../assets/Vodafone-Logo.svg",
+    logo: "src/assets/Vodafone_Global_Enterprise-Logo.wine.svg",
     lastUpdated: "2024-12-05",
     summary: {
       dataCollection: [
