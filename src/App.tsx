@@ -56,63 +56,100 @@ export default function App() {
     <>
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
-          {/* Header */}
+         
           <div className="mb-8">
-            <div className="flex flex-col items-center gap-3 mb-4 text-center">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <FileText className="w-10 h-10 text-primary" />
-              </div>
-              <div className="mt-2">
-                <h1 className="text-6xl font-bold">SkiptheJargon</h1>
-                <p className="text-muted-foreground mt-2">
-                  Simplified summaries of privacy policies and terms from major UK companies
-                </p>
+        <div className="flex flex-col items-center gap-3 mb-4 text-center">
+          <div className="p-2 bg-primary/10 rounded-lg">
+            <FileText className="w-10 h-10 text-primary" />
+          </div>
+          <div className="mt-2">
+            <h1 className="text-6xl font-bold">SkiptheJargon</h1>
+            <p className="text-muted-foreground mt-2">
+          Simplified summaries of privacy policies and terms from major UK companies
+            </p>
+          </div>
+        </div>
+        <div className="text-center mb-6">
+          <p className="text-muted-foreground">
+            With privacy summaries from UK companies, including:
+          </p>
+        </div>   
+        {/* Infinite Logo Slider */}
+        <div className="w-full overflow-hidden py-4">
+          <div
+            className="flex gap-10 animate-logo-slide"
+            style={{
+          width: 'max-content',
+          animation: 'logo-slide 30s linear infinite'
+            }}
+          >
+            {filteredCompanies.concat(filteredCompanies).map((company, idx) => (
+          <img
+            key={company.id + '-' + idx}
+            src={company.logo}
+            alt={company.name + " logo"}
+            className="h-12 w-auto object-contain  hover:grayscale transition"
+            style={{ minWidth: 80, maxWidth: 140 }}
+          />
+            ))}
+          </div>
+          <style>
+            {`
+          @keyframes logo-slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-logo-slide {
+            will-change: transform;
+          }
+            `}
+          </style>
+        </div>
+        <div className="my-10" />
+        {/* Stats Cards */}
+        <div className="flex justify-center mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
+            <div className="card border border-black flex items-center justify-center">
+          <div className="card-body flex flex-col items-center justify-center">
+            <div className="flex items-center gap-3">
+              <Users className="w-5 h-5 text-blue-500" />
+              <div className="text-center">
+            <p className="text-sm text-muted-foreground">Total Companies</p>
+            <p className="font-semibold">{stats.totalCompanies}</p>
               </div>
             </div>
-            {/* Stats Cards */}
-            <div className="flex justify-center mb-6">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
-                <div className="card border border-black flex items-center justify-center">
-                  <div className="card-body flex flex-col items-center justify-center">
-                    <div className="flex items-center gap-3">
-                      <Users className="w-5 h-5 text-blue-500" />
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Total Companies</p>
-                        <p className="font-semibold">{stats.totalCompanies}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          </div>
+            </div>
 
-                <div className="card border border-black flex items-center justify-center">
-                  <div className="card-body flex flex-col items-center justify-center">
-                    <div className="flex items-center gap-3">
-                      <Shield className="w-5 h-5 text-green-500" />
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Low Risk Companies</p>
-                        <p className="font-semibold">{stats.lowRiskCount}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="card border border-black flex items-center justify-center">
-                  <div className="card-body flex flex-col items-center justify-center">
-                    <div className="flex items-center gap-3">
-                      <FileText className="w-5 h-5 text-purple-500" />
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Industries Covered</p>
-                        <p className="font-semibold">{stats.uniqueIndustries}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="card border border-black flex items-center justify-center">
+          <div className="card-body flex flex-col items-center justify-center">
+            <div className="flex items-center gap-3">
+              <Shield className="w-5 h-5 text-green-500" />
+              <div className="text-center">
+            <p className="text-sm text-muted-foreground">Low Risk Companies</p>
+            <p className="font-semibold">{stats.lowRiskCount}</p>
               </div>
             </div>
+          </div>
+            </div>
+
+            <div className="card border border-black flex items-center justify-center">
+          <div className="card-body flex flex-col items-center justify-center">
+            <div className="flex items-center gap-3">
+              <FileText className="w-5 h-5 text-purple-500" />
+              <div className="text-center">
+            <p className="text-sm text-muted-foreground">Industries Covered</p>
+            <p className="font-semibold">{stats.uniqueIndustries}</p>
+              </div>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
 
             <div className="divider"> </div>
 
-            {/* Search and Filter */}
+            
             <SearchAndFilter
               onSearch={setSearchQuery}
               onFilterIndustry={setIndustryFilter}
@@ -125,7 +162,7 @@ export default function App() {
             />
           </div>
 
-          {/* Results */}
+        
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <h2>Companies: </h2>
@@ -161,7 +198,7 @@ export default function App() {
             </div>
           )}
 
-          {/* Footer */}
+         
           <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
             <p>
               <b>S240256</b>

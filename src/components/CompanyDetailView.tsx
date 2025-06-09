@@ -67,7 +67,7 @@ export function CompanyDetailView({ company, onBack }: CompanyDetailViewProps) {
         <div className = "card bg-blue-900">
             <div className="card-title flex items-center gap-2">
               <Database className="w-5 h-5" />
-              Data Collection
+              Data Collections
             </div>
           <div className="card-body">
             <ul className="space-y-2">
