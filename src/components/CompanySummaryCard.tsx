@@ -17,26 +17,31 @@ export function CompanySummaryCard({ company, onViewDetails }: CompanySummaryCar
   };
 
   return (
-    <div className="card bg-gray-600 shadow-md border border-gray-200 rounded-lg hover:bg-info shadow-lg transition-shadow duration-200 text-left">
-      <div className="card-header flex items-center justify-between p-4">
-        <img src={company.logo || "/default-logo.png"} alt={`${company.name} logo`} className="w-20 h-20 " />
-       </div> 
-      <div className="pb-3">
+    <div className="card bg-base-content shadow-md border border-gray-200 rounded-lg hover:bg-gray-200 shadow-lg transition-shadow duration-200">
+      <div className="card-header p-4">
+      <div className="flex items-center gap-4 mb-2">
+        {company.logo && (
+          <img src={company.logo} alt={`${company.name} logo`} className="w-12 h-12" />
+        )}
+      </div>
+      </div>
+      <div className="card-title p-4 border-b border-gray-200">
       <div className="flex items-start justify-between">
-        <div className="flex-1">
-        <div className="card-title flex items-center gap-2 mb-2">
+        <div className="flex flex-col">
+        <div className="text-lg font-semibold text-base-100 flex items-center gap-2">
+
           {company.name}
-          <div className="badge badge-outline badge-xs">
+            <div className="badge badge-outline badge-xs text-xs bg-gray-100 border-gray-200 max-sm:text-[10px] max-sm:px-1 max-sm:py-0.5">
           {company.industry}
           </div>
         </div>
-        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex items-center gap-4 text-sm text-base-300">
           <div className="flex items-center gap-1">
           <Calendar className="w-4 h-4" />
           Updated: {new Date(company.lastUpdated).toLocaleDateString('en-GB')}
           </div>
-          <div className={`badge badge-outline ${getRiskColor(company.summary.riskLevel)}`}>
-          <Shield className="w-3 h-3 mr-1" />
+            <div className={`badge ${getRiskColor(company.summary?.riskLevel ?? '')} badge-outline ml-2 flex items-center gap-1 text-xs max-sm:text-[10px] max-sm:px-1 max-sm:py-0.5`}>
+            <Shield className="w-3 h-3 mr-1" />
           {company.summary.riskLevel} Risk
           </div>
         </div>
@@ -46,13 +51,13 @@ export function CompanySummaryCard({ company, onViewDetails }: CompanySummaryCar
       
       <div className="card-body space-y-4 text-left">
         <div>
-          <h4 className="mb-2 flex items-center gap-2">
-        <Eye className="w-4 h-4" />
-        Key Highlights
+          <h4 className="mb-2 flex items-center gap-2 text-base-200 text-lg font-semibold">
+        <Eye className="w-4 h-4 text-base-300" />
+        Overview
           </h4>
           <div className="space-y-1">
         {company.summary.keyHighlights.slice(0, 3).map((highlight, index) => (
-          <div key={index} className="text-sm text-muted-foreground flex items-center gap-2">
+          <div key={index} className="text-sm text-base-200 flex items-center gap-2">
             <div className="w-1.5 h-1.5 bg-primary rounded-full" />
             {highlight}
           </div>
@@ -61,17 +66,17 @@ export function CompanySummaryCard({ company, onViewDetails }: CompanySummaryCar
         </div>
 
         <div>
-          <h4 className="mb-2 flex items-center gap-2">
-        <Users className="w-4 h-4" />
+          <h4 className="mb-2 flex items-center gap-2 text-base-200 text-lg font-semibold">
+        <Users className="w-4 h-4 text-base-300" />
         Data Collection Summary
           </h4>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-base-200">
         Collects {company.summary.dataCollection.length} types of personal data including {company.summary.dataCollection[0].toLowerCase()} and usage analytics.
           </p>
         </div>
 
         <div className="pt-2">
-          <button className="btn btn-outline w-full"
+          <button className="btn btn-base-100 w-full hover:bg-info-content transition-colors"
             onClick={() => onViewDetails(company)}
             
             
