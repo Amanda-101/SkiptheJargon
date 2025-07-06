@@ -63,86 +63,84 @@ export default function App() {
             <FileText className="w-10 h-10 text-primary" />
           </div>
           <div className="mt-2">
-            <h1 className="text-6xl font-bold">SkiptheJargon</h1>
-            <p className="text-muted-foreground mt-2">
-          Simplified summaries of privacy policies and terms from major UK companies
-            </p>
+            <h1 className="text-6xl font-bold text-zinc-800">SkiptheJargon</h1>
+    
           </div>
         </div>
         <div className="text-center mb-6">
-          <p className="text-muted-foreground">
-            With privacy summaries from UK companies, including:
+          <p className="text-muted-foreground text-zinc-800">
+            This tool provides simplified summaries of privacy policies and terms from major UK companies.
+            Use the search and filters to find specific companies or industries.
           </p>
         </div>   
         {/* Infinite Logo Slider */}
-        <div className="w-full overflow-hidden py-4">
+        <div className="w-full overflow-hidden py-4 relative">
           <div
-            className="flex gap-10 animate-logo-slide"
+            className="flex gap-10 animate-logo-carousel"
             style={{
-          width: 'max-content',
-          animation: 'logo-slide 30s linear infinite'
+              width: 'max-content',
+              animation: 'logo-carousel 40s linear infinite'
             }}
           >
-            {filteredCompanies.concat(filteredCompanies).map((company, idx) => (
-          <img
-            key={company.id + '-' + idx}
-            src={company.logo}
-            alt={company.name + " logo"}
-            className="h-12 w-auto object-contain  hover:grayscale transition"
-            style={{ minWidth: 80, maxWidth: 140 }}
-          />
+            {[...companiesData, ...companiesData,].map((company, idx) => (
+              <img
+                key={`${company.id}-${idx}`}
+                src={company.logo}
+                alt={`${company.name} logo`}
+                className="w-24 h-24 object-contain"
+              />
             ))}
           </div>
           <style>
             {`
-          @keyframes logo-slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .animate-logo-slide {
-            will-change: transform;
-          }
+              @keyframes logo-carousel {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .animate-logo-carousel {
+                will-change: transform;
+              }
             `}
           </style>
         </div>
         <div className="my-10" />
         {/* Stats Cards */}
-        <div className="flex justify-center mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <Users className="w-5 h-5 text-blue-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground">Total Companies</p>
-            <p className="font-semibold">{stats.totalCompanies}</p>
-              </div>
+        <div className="flex flex-col items-center gap-4 mb-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <Users className="w-5 h-5 text-blue-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Total Companies</p>
+              <p className="font-semibold text-zinc-800">{stats.totalCompanies}</p>
             </div>
           </div>
+              </div>
             </div>
 
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-green-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground">Low Risk Companies</p>
-            <p className="font-semibold">{stats.lowRiskCount}</p>
-              </div>
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <Shield className="w-5 h-5 text-green-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Low Risk Companies</p>
+              <p className="font-semibold text-zinc-800">{stats.lowRiskCount}</p>
             </div>
           </div>
+              </div>
             </div>
 
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-purple-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground">Industries Covered</p>
-            <p className="font-semibold">{stats.uniqueIndustries}</p>
-              </div>
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <FileText className="w-5 h-5 text-purple-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Industries Covered</p>
+              <p className="font-semibold text-zinc-800">{stats.uniqueIndustries}</p>
             </div>
           </div>
+              </div>
             </div>
           </div>
         </div>
@@ -163,7 +161,7 @@ export default function App() {
           </div>
 
         
-          <div className="mb-4 flex items-center justify-between">
+          <div className="mb-4 flex items-center justify-between text-zinc-800">
             <div className="flex items-center gap-2">
               <h2>Companies: </h2>
               <span className='badge-outline'>
@@ -176,11 +174,14 @@ export default function App() {
             <div className='card'>
               <div className='card-body'>
                 <div className="flex flex-col items-center gap-3">
-                  <Info className="w-8 h-8 text-muted-foreground" />
-                  <div>
-                    <h3>No companies found</h3>
-                    <p className="text-muted-foreground">
-                      Try adjusting your search query or filters to find what you're looking for.
+                  <Info className="w-8 h-8 text-amber-800" />
+                  <div className="text-center">
+                    <h2 className="text-xl font-semibold text-zinc-800">No Companies Found</h2>
+                    <p className="text-muted-foreground text-zinc-800 mt-2">
+                      We couldn't find any companies matching your search or filters. 
+                    </p>
+                    <p className="text-muted-foreground text-zinc-800 mt-1">
+                      Please try adjusting your search query or filters.
                     </p>
                   </div>
                 </div>
@@ -199,7 +200,7 @@ export default function App() {
           )}
 
          
-          <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
+          <div className="mt-8 text-center text-muted-foreground text-sm text-zinc-800">
             <p>
               <b>S240256</b>
             </p>

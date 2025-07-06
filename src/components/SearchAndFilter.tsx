@@ -37,14 +37,13 @@ export function SearchAndFilter({
     <div className="space-y-4">
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-black" />
           <input
             type="text"
-            className="input input-bordered w-full pl-10"
+            className="input input-bordered w-full pl-10 text-black bg-white/10  focus:outline-none focus:ring-2 focus:ring-primary transition-colors"
             placeholder="Search companies..."
             value={searchQuery}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleSearchChange(e.target.value)}
-           
           />
         </div>
         
@@ -83,7 +82,7 @@ export function SearchAndFilter({
           {activeFilters.industry && (
             <div className="badge badge-secondary gap-1">
               Industry: {activeFilters.industry}
-              <button className="btn-ghost btn-sm h-auto p-0 hover:bg-transparent"
+              <button className=" btn-sm h-auto p-0 hover:bg-transparent"
                 onClick={() => onFilterIndustry(null)}
               >
                 <X className="w-3 h-3" />
@@ -100,11 +99,17 @@ export function SearchAndFilter({
               </button>
             </div>
           )}
-          <button className="btn btn-ghost h-auto p-0 hover:bg-transparent text-xs"
+            <span
+            className="cursor-pointer text-zinc-800 underline text-sm"
             onClick={clearFilters}
-          >
+            role="button"
+            tabIndex={0}
+            onKeyPress={(e) => {
+              if (e.key === "Enter" || e.key === " ") clearFilters();
+            }}
+            >
             Clear all
-          </button>
+            </span>
         </div>
       )}
     </div>
