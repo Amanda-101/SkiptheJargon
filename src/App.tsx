@@ -105,42 +105,42 @@ export default function App() {
         </div>
         <div className="my-10" />
         {/* Stats Cards */}
-        <div className="flex justify-center mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl">
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <Users className="w-5 h-5 text-blue-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground text-zinc-800">Total Companies</p>
-            <p className="font-semibold text-zinc-800">{stats.totalCompanies}</p>
-              </div>
+        <div className="flex flex-col items-center gap-4 mb-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <Users className="w-5 h-5 text-blue-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Total Companies</p>
+              <p className="font-semibold text-zinc-800">{stats.totalCompanies}</p>
             </div>
           </div>
+              </div>
             </div>
 
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-green-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground text-zinc-800">Low Risk Companies</p>
-            <p className="font-semibold text-zinc-800">{stats.lowRiskCount}</p>
-              </div>
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <Shield className="w-5 h-5 text-green-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Low Risk Companies</p>
+              <p className="font-semibold text-zinc-800">{stats.lowRiskCount}</p>
             </div>
           </div>
+              </div>
             </div>
 
-            <div className="card border border-black flex items-center justify-center">
-          <div className="card-body flex flex-col items-center justify-center">
-            <div className="flex items-center gap-3">
-              <FileText className="w-5 h-5 text-purple-500" />
-              <div className="text-center">
-            <p className="text-sm text-muted-foreground text-zinc-800">Industries Covered</p>
-            <p className="font-semibold text-zinc-800">{stats.uniqueIndustries}</p>
-              </div>
+            <div className="card border border-black flex items-center justify-center w-full">
+              <div className="card-body flex flex-col items-center justify-center">
+          <div className="flex items-center gap-3">
+            <FileText className="w-5 h-5 text-purple-500" />
+            <div className="text-center">
+              <p className="text-sm text-muted-foreground text-zinc-800">Industries Covered</p>
+              <p className="font-semibold text-zinc-800">{stats.uniqueIndustries}</p>
             </div>
           </div>
+              </div>
             </div>
           </div>
         </div>
